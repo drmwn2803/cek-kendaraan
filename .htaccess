@@ -1,0 +1,22 @@
+RewriteEngine On
+RewriteBase /cek-kendaraan/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^beranda$ index.php?views_user=beranda
+RewriteRule ^search$ search.php
+RewriteRule ^filter$ list_data.php
+RewriteRule ^login$ login.php
+
+RewriteRule ^dashboard$ admin.php?views=dashboard
+
+RewriteRule ^data_kendaraan$ admin.php?views=data_kendaraan
+RewriteRule ^input_data_kendaraan$ admin.php?views=input_data_kendaraan
+RewriteRule ^edit_data_kendaraan/([A-Za-z0-9]+)$ admin.php?views=edit_data_kendaraan&id=$1 [NC,L]
+RewriteRule ^control_panel$ admin.php?views=control_panel
+
+RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views=$1
+RewriteRule ^([A-Za-z0-9-]+)$ index.php?views_user=$1
+
+Options All -Indexes
